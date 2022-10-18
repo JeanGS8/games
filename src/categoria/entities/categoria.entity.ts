@@ -11,8 +11,6 @@ export class Categoria{
     @Column({length: 50, nullable: false})
     tipo: string;
 
-    @OneToMany(() => Produto, (produto) => produto.categoria, {
-        onDelete: "CASCADE"
-    })
-    produto: Produto;
+    @OneToMany(() => Produto, (produto) => produto.categoria)
+    produto: Produto[];
 }

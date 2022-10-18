@@ -45,7 +45,7 @@ export class CategoriaService{
     }
 
     async create(categoria: Categoria): Promise<Categoria>{
-        return await this.categoriaRepository.create(categoria);
+        return await this.categoriaRepository.save(categoria);
     }
 
     async update(categoria: Categoria): Promise<Categoria>{
@@ -53,7 +53,7 @@ export class CategoriaService{
 
         if(!buscaCategoria || !categoria.id)
             throw new HttpException('Categoria não encontrada!', HttpStatus.NOT_FOUND);
-        return this.categoriaRepository.create(categoria);
+        return this.categoriaRepository.save(categoria);
     }
 
     async delete(id: number): Promise<DeleteResult>{
